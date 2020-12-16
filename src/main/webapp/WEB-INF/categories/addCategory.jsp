@@ -24,7 +24,7 @@
 			</div>
 			
 			<div class="d-flex justify-content-end">
-				<button class="btn btn-outline-dark">Create Dojo</button>
+				<button class="btn btn-outline-dark">Create Category</button>
 			</div>
 		</form:form>
 		

@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
@@ -32,9 +34,7 @@ public class Category {
     )
     private List<Product> products;
     
-    public Category() {
-        
-    }
+    public Category() {}
 
 	public Long getId() {
 		return id;
@@ -75,6 +75,16 @@ public class Category {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
+	
+	@PrePersist
+    protected void onCreate() {
+    	this.createdAt = new Date();
+    }
+    
+    @PreUpdate
+    protected void onUpdate() {
+    	this.updatedAt = new Date();
+    }
     
     
 }
